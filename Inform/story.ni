@@ -8,13 +8,14 @@ Use fast route-finding.
 Use fast route-finding.
 Use MAX_INDIV_PROP_TABLE_SIZE of 500000.
 Use MAX_PROP_TABLE_SIZE of 500000.
+use MAX_STATIC_DATA of 580000.
 Use MAX_OBJ_PROP_COUNT of 128.
 Include Basic Help Menu by Emily Short.
 Include Version 4 of Menus by Emily Short.
 
 The release number is 36.
 The story creation year is 2010.
-The maximum score is 1800.
+The maximum score is 2500.
 
 Table of Basic Help Options (continued)
 title	description 
@@ -30,6 +31,8 @@ title	description
 "Play On"	"You want to skip that ending? Go for it. Type [bold type]play on[roman type] and time will cease to be a concern. You will not get endings though."
 
 Book 1 - Variable Definitions
+
+The file of flexiblestory is called "flexible1".
 
 monster is a number that varies.
 The player has text called name.
@@ -304,6 +307,9 @@ understand "seat" as chair.
 gryphon milk is a grab object. It is a part of the player. Understand "milk" as gryphon milk. Gryphon milk is infectious. The strain of gryphon milk is "Hermaphrodite Gryphon"; The trade of Gryphon Milk is "distilled milk".
 distilled milk is a grab object. It is a part of the player.
 
+Include Red Light by Hiccup.
+Include High Rise District by Batroo.
+
 The invent of the player is { "journal" };
 
 Table of Start Game
@@ -333,6 +339,7 @@ title	subtable	description	toggle
 "Bunker"	--	--	location choice rule
 "Caught Outside"	--	--	location choice rule
 "Rescuer Stranded"	--	--	location choice rule
+"Forgotten"	--	--	location choice rule
 
 
 Table of Basic Combat
@@ -345,7 +352,7 @@ title	subtable	description	toggle
 "Your HP: [hp of player]/[maxhp of player] [name in row monster of table of random critters] HP: [monsterhp]/[hp in row monster of table of random critters]"	--	"I am fit as a fiddle"	--
 
 Table of combat items
-title	subtable	description	toggle
+title(indexed text)	subtable	description	toggle
 "Nothing"	--	"Nothing here."	combat item rule
 with 100 blank rows.
 
@@ -482,6 +489,8 @@ To say felitaur tempt:
 	say "All at once, everyone is climaxing. In you, around you, shuddering squeals of rodent delight before you feel your own body shudder in powerful release. As darkness claims you, you can see the den getting smaller, the original rat dragging you away.";
 	
 
+
+
 Table of random critters
 name	attack	defeated	victory	desc	face	body	skin	tail	cock	face change	body change	skin change	ass change	cock change	str	dex	sta	per	int	cha	sex	hp	lev	wdam	area	cocks	cock length	cock width	breasts	breast size	male breast size	cunts	cunt length	cunt width	libido	loot	lootchance
 "Slut Rat"	"[one of]She slices at your face with a sudden swipe of her claws.[or]She draws you close with a loud rumble and presses your lips to a breast, holding you still until you start drinking from her, intense warmth rushing through your body, though you are left drained and tired as well.[if cock width of player is greater than 0] Your balls sing with pleasure as they grow heavier by the moment![otherwise] You squirm in shock as you feel a new set of balls erupt from your body![end if][slut rat growth] [or]Her tail loops around and tickles at you between the legs even as she shoves you back against the ground.[or]She suddenly turns, and a flying furry breasts crashes into you painfully.[at random]"	"She gives a final hiss of defiance, then scurries away out of sight, leaving you with an image of her perfect rump and twitching tail to remind her by."	"[slut rat victory]"	"Towering over most, a tall intimidating wall of fur and leather. It appears female at first glance. Piercing its large directed ears are one ring a piece, one a goldish hue, and another silverish shade. It's covered from top to bottom in ebony black fur, that is, where clothing is not apparent. Her eyes are the same black shade as her hair, the left eye having a scar that runs an inch above downwards in a slicing motion to an inch or two below.
@@ -517,7 +526,6 @@ Include Herm Hyena for FS by Anony Mouse.
 Include Wyvern For Fs by Damaged.
 Include Stuck Dragon by Hiccup.
 Include Tanuki by Nuku Valente.
-Include Red Light by Hiccup.
 Include Cannon by Hiccup.
 Include Spidergirl For Fs by Tentacle Specialist.
 Include Mouse Taur by Nuku Valente.
@@ -533,7 +541,12 @@ Include otter by Nuku Valente.
 Include Ash Drakenoid by Sweraptor.
 Include Kangaroo by batroo.
 Include Feral Sea Dragon by Tunalord Sefont.
+Include Feral Sea Dragoness by Tunalord Sefont.
 Include Pets by Nuku Valente.
+Include sprite by Nuku Valente.
+Include Harpy by Nuku Valente.
+Include Cute Chinchilla Girl For FS by Trav.
+
 
 understand the command "feed" as something new.
 
@@ -556,6 +569,26 @@ left	central	right
 
 
 Book 6 - Rules, Obey them!
+
+Part 1 - Flags
+
+flag is a kind of thing.
+A flag has a list of text called infections.
+A flag has a list of situations called badspots.
+A flag can be banned. A flag is usually not banned.
+Furry is a flag.
+Guy is a flag.
+Girl is a flag.
+Humorous is a flag.
+Hermaphrodite is a flag.
+when play begins:
+	add { "Awesome", "Cock Cannon" } to infections of humorous;
+	add { "Slut Rat", "Panther Taur", "Hermaphrodite Gryphon", "Female Husky", "Latex Fox", "black equinoid", "Ashen Breeder", "lizard girl", "Skunk", "Shemale Smooth Collie", "Felinoid", "Bovine", "Feline", "Herm Hyena", "Bear", "Pit bull", "Painted Wolf Herm", "sewer gator", "doe", "sea otter", "Ash Drakenoid", "red kangaroo", "feral sea dragon", "German Shepherd", "Cute Chinchilla Woman", "feral sea dragoness"  } to infections of furry;
+	add { "Naga", "Latex Fox", "skunk", "Shemale Smooth Collie", "Bovine", "Tentacle Horror", "Demon Brute", "Wyvern", "Cock Cannon", "sea otter", "Ash Drakenoid", "feral sea dragon", "German Shepherd", "feline", "Felinoid" } to infections of guy;
+	add { "Ashen Breeder", "Slut Rat", "Panther Taur", "Hermaphrodite Gryphon", "Parasitic Plant", "Herm Hyena", "Painted Wolf Herm", "sewer gator", "doe", "black equinoid", "spidergirl", "Cute Chinchilla Woman" } to infections of hermaphrodite;
+	add { "Drone Wasp", "Goo Girl", "Female Husky", "black equinoid", "lizard girl", "felinoid", "skunk", "sea otter", "Tentacle Horror", "spidergirl", "Mothgirl", "red kangaroo", "city sprite", "Pit bull", "feral sea dragoness" } to infections of girl;
+
+Part 2 - Rules
 
 First for constructing the status line (this is the bypass status line map rule):
 	fill status bar with table of fancy status;
@@ -584,6 +617,7 @@ carry out hunting:
 	let found be 0;
 	repeat with X running from 1 to number of rows in table of random critters:
 		choose row X from the table of random critters;
+		if there is no area entry, next;
 		if area entry matches the text battleground:
 			if name entry matches the text topic understood, case insensitively:
 				add x to q;
@@ -610,7 +644,11 @@ carry out hunting:
 	if the number of entries in q is not 0 and found is 1:
 		sort Q in random order;
 		repeat with Z running through q:
-			now monster is Z;
+			choose row z from the table of random critters;
+			if there is a name entry:
+				now monster is Z;
+			otherwise:
+				next;
 			break;
 		choose row monster from the table of random critters;
 		now monsterhp is hp entry;
@@ -637,12 +675,63 @@ carry out hunting:
 					say "Despite your searches, you fail to find it.";
 				break;
 		if found is 0:
-			say "[bold type]You don't think what you[apostrophe]re looking for can be found here...[roman type]";
-			let dice be a random number from 1 to 20;
-			if dice is greater than 14:
-				Fight;
+			repeat with z running through situations:
+				if z is resolved, next;
+				if printed name of z matches the text topic understood, case insensitively:
+					say "It should be somewhere....";
+					now found is 1;
+					let dice be a random number from 1 to 20;
+					let the bonus be (( the perception of the player minus 10 ) divided by 2);
+					increase dice by bonus;
+					if dice is greater than 15:
+						say "You manage to find your way to [z]!";
+						try resolving z;
+						now dice is a random number from 1 to 20;
+						if dice is greater than 14:
+							Fight;
+					otherwise:
+						say "Despite your searches, you fail to find it.";
+					break;
+			if found is 0:
+				say "[bold type]You don't think what you[apostrophe]re looking for can be found here...[roman type]";
+				let dice be a random number from 1 to 20;
+				if dice is greater than 14:
+					Fight;
 		follow the turnpass rule;
 
+to ban menu:
+	blank out the whole of table of combat items;
+	let X be 1;
+	repeat with Q running through flags:
+		choose a blank row in table of combat items;
+		now title entry is printed name of Q;
+		now description entry is printed name of Q;
+		if q is banned:
+			now title entry is "BANNED";
+		now toggle entry is flag ban rule;
+[	let z be the number of rows in table of combat items;
+	say "[Z].";]
+	if there is no title in row 1 of table of combat items:
+		say "There are no flags!";
+		wait for any key;
+	otherwise:
+		change the current menu to table of Combat Items;
+		carry out the displaying activity;
+
+This is the flag ban rule:
+	choose row Current Menu Selection in table of combat items;
+	let nam be description entry;
+	let z be furry;
+	repeat with y running through flags:
+		if nam matches the text printed name of y:
+			now z is y;
+			break;
+	if z is banned:
+		now z is not banned;
+	otherwise:
+		now z is banned;
+	decrease the menu depth by 1;
+	ban menu;
 
 This is the combat item rule:
 	blank out the whole of table of combat items;
@@ -884,6 +973,8 @@ Include Hyper Squirrel by Nuku Valente.
 Include Food and Water Finding by Nuku Valente.
 Include Random German Shepherd For Fs by Telanda Softpaw.
 Include Hungry Boar Man by Hiccup.
+Include Messy Pig for Fs by anonymous.
+Include Elf by Nuku Valente.
 Include Feats by Nuku Valente.
 
 to delete (X - a grab object):
@@ -1005,7 +1096,8 @@ To process (X - a grab object):
 			increase morale of player by 62;
 			if morale of player is greater than 0, now morale of player is 0;
 			say "After drinking something, you feel better.";
-		now monster is a random number from 1 to number of rows in the table of random critters;
+		sort table of random critters in random order;
+		now monster is 1;
 		if "Iron Stomach" is not listed in feats of player, infect;
 	if x is soda:
 		if thirst of player is greater than 0:
@@ -1105,7 +1197,7 @@ carry out conversing:
 		say "[Noun] says, '[Comment]'";
 		break;
 
-Part 1 - Item Code
+Part 3 - Item Code
 
 Understand the command "get" as something new.
 Understand the command "take" as something new.
@@ -1270,6 +1362,9 @@ This is the sex change rule:
 		if cunt length of player is less than 1 or cunt width of player is less than 1:
 			say "With a sickening noise, you cease to be female all together.";
 			now the cunts of the player is 0;
+		if cunts of the player is greater than 1 and a random chance of 1 in 3 succeeds:
+			say "An odd wet noise has you peeking in time to see one of your [one of]cunts[or]pussies[at random] have vanished!";
+			decrease cunts of player by 1;
 	if ( the sex entry is "Female" or the sex entry is "Both") and cunt length of player is less than cunt length entry and cunts of player is not 0 and "Male Preferred" is not listed in feats of player:
 		increase cunt length of player by 1;
 		increase cunt length of player by ( cunt length entry minus cunt length of player ) divided by 3;
@@ -1297,6 +1392,9 @@ This is the sex change rule:
 		if cock length of player is less than 1 or cock width of player is less than 1:
 			say "You barely have time to give a whimper as you cease to be a male.";
 			now the cocks of the player is 0;
+		if cocks of the player is greater than 1 and a random chance of 1 in 3 succeeds:
+			say "Sudden pleasure runs through one of your doomed [cock of player] cocks as it sprays the last of its seed, dwindling down to nothing at all and vanishing, leaving only the powerful orgasm to remember it by.";
+			decrease cocks of player by 1;
 
 Retaliating is an action applying to nothing.
 
@@ -1536,6 +1634,15 @@ This is the player attack rule:
 		say "[Name entry] is [descr].";
 	otherwise:
 		say "You miss!";
+	if player is not lonely and a random chance of 1 in 5 succeeds:
+		now attack bonus is ( ( dexterity of companion of player minus 10 ) divided by 2 ) plus level of companion of player;
+		now roll is a random number from 1 to 20;
+		if roll plus the attack bonus minus the defense bonus is greater than 8:
+			let dam be ( weapon damage of companion of player times a random number from 80 to 120 ) divided by 100;
+			say "[assault of companion of player] [dam] damage inflicted!";
+			decrease monsterhp by dam;
+		otherwise:
+			say "Your [companion of player] misses!";
 	if monsterhp is greater than 0:
 		Retaliate;
 		wait for any key;
@@ -1563,7 +1670,7 @@ This is the player attack rule:
 			say "You gain 1 x [loot entry]!";
 			add loot entry to invent of player;
 		decrease the menu depth by 1;
-		wait for any key;
+		if ok is 1, wait for any key;
 	clear the screen;
 	[if the menu depth is greater than 0, carry out the displaying activity;]
 	[if the menu depth is 0, try looking;]
@@ -1645,10 +1752,10 @@ To fight:
 			now needed is ( level of player plus one ) times 8;
 		if xp of player is greater than needed:
 			level up;
-		now needed is ( level of companion ) times 10;
+		now needed is ( level of companion of player ) times 10;
 		if "Good Teacher" is listed in feats of player:
-			now needed is ( level of companion ) times 6;
-		if xp of companion of player is greater than needed and level of companion is less than level of player:
+			now needed is ( level of companion of player ) times 6;
+		if xp of companion of player is greater than needed and level of companion of player is less than level of player:
 			pet level up;
 		[try looking;]
 	rule succeeds;
@@ -1728,7 +1835,7 @@ carry out resting:
 This is the explore rule:
 	let something be 0;
 	let the bonus be (( the perception of the player minus 10 ) divided by 2);
-	if something is 0 and a random number from 1 to 20 is less than 5 plus bonus and there is an unknown fasttravel room:
+	if something is 0 and a random number from 1 to 20 is less than 5 plus bonus and there is an unknown fasttravel room and battleground is "Outside":
 		let L be a random unknown fasttravel not private room;
 		if L is not nothing:
 			say "[one of]After wandering aimlessly for hours, you happen across[or]Following your faint memories, you manage to find[or]Following movement, you end up at[at random] [L].";
@@ -1761,6 +1868,8 @@ check exploring:
 	if location of player is not fasttravel, say "You can not explore from here." instead;
 
 carry out exploring:
+	let l be a random visible dangerous door;
+	if l is not nothing, now battleground is the marea of l;
 	follow the explore rule;
 
 This is the turnpass rule:
@@ -2071,7 +2180,7 @@ To showstats (x - Person):
 		otherwise:
 			say "The child remains as alert and human as you are, taking after you eagerly. Despite their age, they are already grown to a young adult, somewhere between 18 and 22 years of age, both in physical size and apparent emotional and mental development.";
 	if the player is not lonely:
-		say "Accompanying you, you have a [companion of player]. [initial appearance of companion of player]";
+		say "Accompanying you, you have a level [level of companion of player] [companion of player]. [initial appearance of companion of player]";
 	now looknow is 0;
 	rule succeeds;
  
@@ -2083,6 +2192,8 @@ This is the location choice rule:
 		say "You were forced to survive outside. You have already been mutated a bit, though your practice has hardened you.(Gain Spartan Diet)[line break]";
 	otherwise if title entry is "Rescuer Stranded":
 		say "You arrived late, looking for survivors, when you got cut off from your team mates, now you just want to survive!(Start with no supplies, an iron man mode, can you survive?)[line break]";
+	otherwise if title entry is "Forgotten":
+		say "You stayed in hiding too long. Your supplies have run dry, and the rescue already came and left. It will be a long time before any more arrive![line break]";
 	say "Continue?";
 	if the player consents:
 		now looknow is 0;
@@ -2100,6 +2211,15 @@ This is the location choice rule:
 			now invent of bunker is { };
 			add "cot" to invent of bunker;
 			increase score by 300;
+		if title entry is "Forgotten":
+			now invent of bunker is { };
+			add "cot" to invent of bunker;
+			now the printed name of Doctor Matt is "Left Behind Recording of Doctor Matt";
+			now the initial appearance of Doctor Matt is "A small recorder labeled 'doctor matt' remains abandoned.";
+			now the hp of doctor matt is 100;
+			remove orthas from play;
+			increase score by 600;
+			extend game by 240;
 	now scenario is title entry;
 	now the menu depth is 0;
 	clear the screen;
@@ -2215,6 +2335,29 @@ When play begins:
 	clear the screen;
 	say "Phew, you barely made it in here, then the lights went out. You waited, in the dark. You're not sure how long you've been down here, but the sounds have long since died away. You've eaten a good portion of the food and water. No choice but to go out and greet the city. At least you have your [bold type]backpack[roman type], and your [bold type]watch[roman type]. How bad could it be?[line break][line break]((Hey there! Some tips for you. Type look backpack, and type look watch. Also, try look me! Your description will probably change as you play.))[line break][line break]";
 	say "Want more details on the game and updates? ----- [bold type]http://nukuv.blogspot.com/[roman type]  ------";
+	say "[line break]Would you like to select types of creatures to NOT appear in the game?";
+	if the player consents:
+		ban menu;
+[		repeat with n running through flags:
+			say "Would you like to ban [N] flagged creatures from the game?";
+			if the player consents:
+				now n is banned;]
+	repeat through the table of random critters:
+		let bad be 0;
+		repeat with n running through all banned flags:
+			if name entry is listed in infections of n:
+				now bad is 1;
+		if bad is 1:
+			blank out the whole row;
+	repeat with n running through situations:
+		let bad be 0;
+		repeat with q running through all banned flags:
+			if n is listed in badspots of q:
+				say "[n] removed due to [q].";
+				now bad is 1;
+		if bad is 1:
+			now n is resolved;
+	sort table of random critters in lev order;
 	[try looking.]
 
 This is the finish stats rule:
@@ -2241,23 +2384,47 @@ This is the finish stats rule:
 		decrease menu depth by 1;
 		rule succeeds;
 	if Current menu selection is 1:
-		increase strength of player by 5;
 		say "Your strength is your specialty.";
+		say "Are you sure?";
+		if the player consents:
+			increase strength of player by 5;
+		otherwise:
+			rule fails;
 	if Current menu selection is 2:
-		increase dexterity of player by 5;
 		say "Your dexterity is your specialty.";
+		say "Are you sure?";
+		if the player consents:
+			increase dexterity of player by 5;
+		otherwise:
+			rule fails;
 	if Current menu selection is 3:
-		increase Stamina of player by 5;
-		say "Your Stamina is your specialty.";
+		say "Your stamina is your specialty.";
+		say "Are you sure?";
+		if the player consents:
+			increase stamina of player by 5;
+		otherwise:
+			rule fails;
 	if Current menu selection is 4:
-		increase charisma of player by 5;
 		say "Your charisma is your specialty.";
+		say "Are you sure?";
+		if the player consents:
+			increase charisma of player by 5;
+		otherwise:
+			rule fails;
 	if Current menu selection is 5:
-		increase perception of player by 5;
 		say "Your perception is your specialty.";
+		say "Are you sure?";
+		if the player consents:
+			increase perception of player by 5;
+		otherwise:
+			rule fails;
 	if Current menu selection is 6:
-		increase intelligence of player by 5;
 		say "Your intelligence is your specialty.";
+		say "Are you sure?";
+		if the player consents:
+			increase intelligence of player by 5;
+		otherwise:
+			rule fails;
 	now started is 1;
 	say "You have decided your physical talents, but are you a man or a woman?";
 	wait for any key;
@@ -2330,19 +2497,19 @@ When play ends:
 		increase score by 10;
 	say "In Scenario: [scenario], You have achieved a score of [score].";
 	say "This rates you as ";
-	if score is less than 40:
+	if score is less than 60:
 		say "inanimate pool toy.";
-	otherwise if the score is less than 80:
+	otherwise if the score is less than 120:
 		say "small barking dog.";
-	otherwise if the score is less than 160:
+	otherwise if the score is less than 240:
 		say "Talented Child";
-	otherwise if the score is less than 320:
-		say "College Student";
 	otherwise if the score is less than 500:
+		say "College Student";
+	otherwise if the score is less than 700:
 		say "Grad Student";
-	otherwise if the score is less than 760:
+	otherwise if the score is less than 960:
 		say "Professor";
-	otherwise if the score is less than 1000:
+	otherwise if the score is less than 1400:
 		say "Grand Scholar";
 	otherwise:
 		say "Ultimate Master";
@@ -2378,7 +2545,7 @@ When play ends:
 		say "You emerge from your harrowing experience with your mind intact, with your [bodyname of player] form and [facename of player] face.";
 		if bodyname is "Human":
 			say "Despite the traumas set on you, you do your best to fit back in with humanity after the rescue arrives.";
-		if cock length of player is greater than 10 or cock width of player is greater than 6:
+		if cock length of player is greater than 10 or cock width of player is greater than 6 and cocks of player is greater than 0:
 			say "Your extreme masculine attributes prove to be more than a little awkward. As society puts itself back together, you do find a niche. Others, changed as you, require the services of such studs, and you never lack for something to do on the weekends.";
 			if cocks of player is greater than 1:
 				say "Your multiple endowments become quite popular amongst some infected, whom come from some great distance to be serviced by you. Though it is illegal to charge for such services, many leave you a 'gift' regardless, even a marriage proposal or two.";
@@ -2437,6 +2604,11 @@ Doctor Matt is in Primary Lab.
 understand "Matt" as doctor matt.
 
 Instead of conversing the doctor matt:
+	if hp of doctor matt is 100:
+		say "'If you are listening to this, you are probably still in the city. My condolences. I have left behind some facilities for you. You will find they can enhance your abilities due to the nanite infection.";
+		say "[bold type]((Every 3 levels, starting at level 3, you may gain one feat by coming here and typing volunteer))[roman type]";
+		say "'God Speed and Good Luck,' says the recording before clicking off.";
+		stop the action;
 	if hp of doctor matt is 0:
 		say "'Welcome to Trevor Labs,' says the man in the hazmat suit, 'I am Doctor Salacious, but most just call me Doctor Matt. Since I didn't hear any scuffling, I presume Orthas let you in, so you are probably not a crazy mutant.'";
 		say "He laughs a little, nervous and forced. 'Anyway, before you ask, no, we did not have anything to do with the nanite infestation. You didn[apostrophe]t know it was nanites? Now you do. I have been studying them for some time since the grid went dark. I[apostrophe]m not much closer to a cure... but I did find something you're probably interested in,' he says, pausing for effect.";
@@ -2462,6 +2634,10 @@ Instead of conversing the doctor matt:
 		repeat with x running through invent of player:
 			if x is "glob of goo", increase goofound by 1;
 			if x is "gryphon milk", increase milkfound by 1;
+		if female is banned:
+			now goofound is 2;
+		if hermaphrodite is banned or furry is banned:
+			now milkfound is 2;
 		if milkfound is less than 2:
 			say "'You do not have enough nutritive secretions,' he chastises.";
 			stop the action;
