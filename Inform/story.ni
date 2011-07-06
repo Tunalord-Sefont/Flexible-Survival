@@ -585,8 +585,8 @@ when play begins:
 	add { "Awesome", "Cock Cannon" } to infections of humorous;
 	add { "Slut Rat", "Panther Taur", "Hermaphrodite Gryphon", "Female Husky", "Latex Fox", "black equinoid", "Ashen Breeder", "lizard girl", "Skunk", "Shemale Smooth Collie", "Felinoid", "Bovine", "Feline", "Herm Hyena", "Bear", "Pit bull", "Painted Wolf Herm", "sewer gator", "doe", "sea otter", "Ash Drakenoid", "red kangaroo", "feral sea dragon", "German Shepherd", "Cute Chinchilla Woman", "feral sea dragoness"  } to infections of furry;
 	add { "Naga", "Latex Fox", "skunk", "Shemale Smooth Collie", "Bovine", "Tentacle Horror", "Demon Brute", "Wyvern", "Cock Cannon", "sea otter", "Ash Drakenoid", "feral sea dragon", "German Shepherd", "feline", "Felinoid" } to infections of guy;
-	add { "Ashen Breeder", "Slut Rat", "Panther Taur", "Hermaphrodite Gryphon", "Parasitic Plant", "Herm Hyena", "Painted Wolf Herm", "sewer gator", "doe", "black equinoid", "spidergirl", "Cute Chinchilla Woman" } to infections of hermaphrodite;
-	add { "Drone Wasp", "Goo Girl", "Female Husky", "black equinoid", "lizard girl", "felinoid", "skunk", "sea otter", "Tentacle Horror", "spidergirl", "Mothgirl", "red kangaroo", "city sprite", "Pit bull", "feral sea dragoness" } to infections of girl;
+	add { "Ashen Breeder", "Slut Rat", "Panther Taur", "Hermaphrodite Gryphon", "Parasitic Plant", "Herm Hyena", "Painted Wolf Herm", "sewer gator", "doe", "black equinoid", "spidergirl", "Cute Chinchilla Woman", "mothgirl" } to infections of hermaphrodite;
+	add { "Drone Wasp", "Goo Girl", "Female Husky", "black equinoid", "lizard girl", "felinoid", "skunk", "sea otter", "Tentacle Horror", "Feline", "Bear", "female skunk", "spidergirl", "Mothgirl", "red kangaroo", "city sprite", "Pit bull", "feral sea dragoness", "Bovine" } to infections of girl;
 
 Part 2 - Rules
 
@@ -1352,11 +1352,14 @@ This is the sex change rule:
 		now cock of player is cock entry;
 		follow the cock descr rule;
 		say " Your groin throbs with intense sensations as a [descr] [cock entry] [one of]cock[or]penis[or]shaft[or]maleness[at random] erupts from you, spurting a few excited streams of fluid as it settles into place.";
-	if cunts of player is not 0 and the sex entry is "Male" and "Female Preferred" is not listed in feats of player and "One Way" is not listed in feats of player:
+	if cunts of player is not 0 and the sex entry is "Male" and "One Way" is not listed in feats of player:
 		decrease cunt length of player by 1;
 		decrease cunt length of player by cunt length of player divided by 3;
 		decrease cunt width of player by 1;
 		decrease cunt width of player by cunt width of player divided by 4;
+		if "Female Preferred" is listed in feats of player:
+			if cunt length of player is less than 4, now cunt length of player is 4;
+			if cunt width of player is less than 2, now cunt width of player is 2;
 		follow the cunt descr rule;
 		say " Strange [one of]erotic tingles[or]cold waves[or]hot flashes[at random] run over your [one of]cunt[or]pussy[or]vagina[or]cleft[at random] begins to shrink. [if cunts of player is greater than 1]They[otherwise]It[end if] dwindles in size, becoming [descr]. ";
 		if cunt length of player is less than 1 or cunt width of player is less than 1:
@@ -1382,11 +1385,14 @@ This is the sex change rule:
 		increase the cunts of player by 1;
 		follow the cunt descr rule;
 		say " Your groin throbs with intense sensations as a [descr] [one of]cunt[or]pussy[or]vagina[or]cleft[at random] wetly forms, Leaking 	 along a thigh as you quiver.";
-	if cocks of player is not 0 and the sex entry is "Female" and "Male Preferred" is not listed in feats of player and "One Way" is not listed in feats of player:
+	if cocks of player is not 0 and the sex entry is "Female" and "One Way" is not listed in feats of player:
 		decrease cock length of player by 1;
 		decrease cock length of player by cock length of player divided by 3;
 		decrease cock width of player by 1;
 		decrease cock width of player by cock width of player divided by 4;
+		if "Male Preferred" is listed in feats of player:
+			if cock length of player is less than 4, now cock length of player is 4;
+			if cock width of player is less than 2, now cock width of player is 2;
 		follow the cock descr rule;
 		say " Strange [one of]erotic tingles[or]cold waves[or]hot flashes[at random] run over your [one of]cock[or]man meat[or]shaft[or]pole[at random] begins to shrink. [if cunts of player is greater than 1]They[otherwise]It[end if] dwindles in size, becoming [descr]. ";
 		if cock length of player is less than 1 or cock width of player is less than 1:
@@ -1564,6 +1570,7 @@ To lose:
 	follow the breast descr rule;
 	say "[victory entry]";
 	infect;
+	if hp of player is less than 1, now hp of player is 1;
 	increase the XP of the player by lev entry divided by two;
 	decrease the score by 1;
 	decrease the morale of the player by 3;
@@ -2490,6 +2497,25 @@ carry out levelcheat:
 	
 Book 7 - Endings
 
+vetcheat is an action applying to nothing.
+understand "i am a pro" as vetcheat.
+
+vetcheater is a number that varies.
+carry out vetcheat:
+	if vetcheater is not 0: 
+		say "You can only use this once.";
+		stop the action;
+	increase vetcheater by 1;
+	increase xp of player by 200;
+	if level of player is less than 5:
+		level up;
+		level up;
+		level up;
+		level up;
+		level up;
+	decrease score by 400;
+	
+
 When play ends:
 	follow the self examine rule;
 	if hp of player is less than 1:
@@ -2513,6 +2539,8 @@ When play ends:
 		say "Grand Scholar";
 	otherwise:
 		say "Ultimate Master";
+	if the score is greater than 999:
+		say "Your performance was so excellent, we'll give you a little... help, for your next run through. Type 'I am a pro' to gain 200 XP. It only works once per character.";
 	say "[line break]";
 	if the score is greater than 9000:
 		say "What, 9000?!";
