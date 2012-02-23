@@ -14,6 +14,8 @@ to say Moth attack:
 		increase breast size of player by 1;
 		increase charisma of player by 1;
 		decrease intelligence of player by 1;
+		if the intelligence of player < 1:
+			now intelligence of player is 1;
 		now Mothdefeat is 1;
 	otherwise:
 		if a random chance of 2 in 3 succeeds: [ Prefer male action]
@@ -29,7 +31,11 @@ to say Moth attack:
 						say "She looks at you having been defeated by her once again, she now has no mercy on you as she douses you with an abundance of dust from her wings. This drives your thoughts into submission as she tells you gently 'come here my pet' your body and mind unable to withstand the effects of the dust obeys and approaches the mothgirl. The mothgirl than spreads her legs and motions you with her finger to come closer as she says almost in a whisper 'now use that tongue of yours to please me, here' as she points to her pussy. You without pause drop your face onto her snatch and begin licking her gently at first. After a minute of teasing she tells you in an aroused tone 'faster if you please' giving you a sexy smile. You obey and quicken your pace, giving her suprisingly wet cunt a thorough licking. She starts to pant heavily as she says to you in a forciful tone 'harder' you unable to control your actions start to bury your tongue deep into her pussy. She soon reaches climax spraying nectar onto your face she then says softly through panted breathes 'lick it up, you will enjoy it'. You still under the effects of the dust clean her of the sprayed nectar and soon go to licking the liquid from your face";
 						increase breast size of player by 5;
 						decrease intelligence of player by 2;
+						if the intelligence of player < 1:
+							now intelligence of player is 1;
 						decrease stamina of player by 2;
+						if the stamina of player < 1:
+							now stamina of player is 1;
 						increase charisma of player by 1;
 					otherwise:
 						say "She looks at you having been defeated by her once again, she now has no mercy on you as she douses you with an abundance of dust from her wings. However you recover from this dust and you escape before she has a chance to do anything to you. However you leave slightly aroused.";
@@ -74,10 +80,10 @@ When Play begins:
 	now attack entry is "[one of]She hits you on the cheek with her hand[or]A kick lands upside your face as the moth girl turns in midair[or]The mothgirl punches you in the gut with her fist[or]The mothgirl rams her butt into your face[at random]"; [Text used when the monster makes an Attack]
 	now defeated entry is "The mothgirl slumps onto the ground with a sigh and tries to protect herself with her fragile wings."; [ Text or say command used when Monster is defeated.]
 	now victory entry is  "[Moth attack]"; [ Text used when monster wins, can be directly entered like combat text or description. or if more complex it can be linked to a 'To Say' block as the demonstration text shows.] 
-	now desc entry is "You see a girl with butterfly wings and fur around her neck, she has [one of]blonde[or]red[or]black[or]Auburn[at random] hair. Her [one of]blue[or]grey[or]hazel[or]green[or]lavender[or]brown[at random] eyes seem to gleam like a jewel as she looks at you. Her skin is grey in color and has perky C cup breasts. She is about 5 feet in height despite the fact of being a mothgirl she still retains most of her height ";[ Description of the creature when you encounter it.]
+	now desc entry is "You see a girl with butterfly wings and fur around her neck, she has [one of]blonde[or]red[or]black[or]Auburn[at random] hair. Her [one of]blue[or]grey[or]hazel[or]green[or]lavender[or]brown[at random] eyes seem to gleam like a jewel as she looks at you. Her skin is grey in color and has perky C cup breasts. She is about 5 feet in height despite the fact of being a mothgirl she still retains most of her height.";[ Description of the creature when you encounter it.]
 	now face entry is "Your face is feminine looking with bright eyes.";[ Face description, format as the text "Your have a (your text) face."] 
 	now body entry is "You have moth wings with each flap you leave a trail of small dust behind you. Your body shrinks to 5 feet in height, and you get light curves to your body.";[ Body Description, format as the text "Your Body is (your text)"] 
-	now skin entry is "You have Grey skin that lightly shines in the light";[ skin Description, format as the text "You have (your text) skin"] 
+	now skin entry is "glimmering grey";[ skin Description, format as the text "You have (your text) skin"] 
 	now tail entry is "";[ Tail description, write a whole Sentence or leave blank. ] 
 	now cock entry is "";[ Cock Description, format as you have a 'size' (your text) cock] 
 	now face change entry is "Your face begins to pull in and feel softer."; [ face change text. format as "Your face feels funny as (your text)" ]
@@ -112,9 +118,9 @@ When Play begins:
 when play ends:
 	if bodyname is "Moth Girl":
 		if humanity of player is less than 10:
-			say "You do not have any prejudice to any particular infected creature, except spidergirls who's nature invites trouble. You flit around acting on the instincts of wanting sex or having sex with numerable partners";
+			say "You do not have any prejudice to any particular infected creature, except spidergirls whose nature invites trouble. You flit around acting on the instincts of wanting sex or having sex with numerable partners.";
 		otherwise:
-			say "You are able to fly anywhere you want in the city and take up a small delivery service, in exchange you get money and multiple sex partners to satisfy your lust";
+			say "You are able to fly anywhere you want in the city and take up a small delivery service, in exchange you get money and multiple sex partners to satisfy your lust.";
 			
 Table of Game Objects(continued)
 name	desc	weight	object

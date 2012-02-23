@@ -50,11 +50,11 @@ name	attack	defeated	victory	desc	face	body	skin	tail	cock	face change	body chan
 When Play begins:
 	Choose a blank row from Table of random critters;
 	now name entry is "city sprite"; [Name of your new Monster]
-	now attack entry is "[one of]The swarm of sprites rushes over you, tickling at your sides in a maddening onslaught of the senses, leaving you giggling.[or][if cocks of player is greater than 0]A sprite zips between your thighs and grabs at your [cock of player] organ, tickling at the very tip of it with her wings as she holds on tight.[otherwise]The sprites focus on your chest, licking and rubbing against you in an excited swarm![end if][or][if cunts of player is greater than 0 and cunt length of player is greater than 5]With a sudden wet noise, you feel your vulva spread apart as a sprite flies up into you with astounding accuracy. She begins to wriggle in deeper, lost to sight, but certainly not to your slick tunnel which spasms in forced delight[otherwise]The sprites get a sudden violent fit, grabbing tiny pebbles and rocks and pelting you with them in a hail of tiny debris.[end if][at random]"; [Text used when the monster makes an Attack]
+	now attack entry is "[one of]The swarm of sprites rushes over you, tickling at your sides in a maddening onslaught of the senses, leaving you giggling.[or][if cocks of player is greater than 0]A sprite zips between your thighs and grabs at your [cock of player] organ, tickling at the very tip of it with her wings as she holds on tight.[otherwise]The sprites focus on your chest, licking and rubbing against you in an excited swarm![end if][or][if cunts of player is greater than 0 and cunt length of player is greater than 5]With a sudden wet noise, you feel your vulva spread apart as a sprite flies up into you with astounding accuracy. She begins to wriggle in deeper, lost to sight, but certainly not to your slick tunnel which spasms in forced delight.[otherwise]The sprites get a sudden violent fit, grabbing tiny pebbles and rocks and pelting you with them in a hail of tiny debris.[end if][at random]"; [Text used when the monster makes an Attack]
 	now defeated entry is "[Sprite loss]"; [ Text or say command used when Monster is defeated.]
 	now victory entry is  "[Sprite attack]"; [ Text used when monster wins, can be directly entered like combat text or description. or if more complex it can be linked to a 'To Say' block as the demonstration text shows.] 
 	now desc entry is "A faint sparkling catches your eyes on the horizon. Squinting to look at it, you notice it getting larger by the moment. All too suddenly, it is upon you, a swarm of naked, elfin females. The tallest of them is two feet tall, many are less. They swarm about you with loud excited giggles and the buzz of their dragonfly wings.";[ Description of the creature when you encounter it.]
-	now face entry is "exceptionally cute and young human female, with elfin ears at either side of your";[ Face description, format as the text "Your have a (your text) face."] 
+	now face entry is "exceptionally cute and young human female, with elfin ears at either side of your head";[ Face description, format as the text "Your have a (your text) face."] 
 	now body entry is "largely human, if not for the great set of dragonfly wings that rest on your back, with blackened flesh and clear for most of their length. Your form is also quite short and feminine.";[ Body Description, format as the text "Your Body is (your text)"] 
 	now skin entry is "flawless human";[ skin Description, format as the text "You have (your text) skin"] 
 	now tail entry is "";[ Tail description, write a whole Sentence or leave blank. ] 
@@ -90,15 +90,17 @@ When Play begins:
 
 Table of Game Objects(continued)
 name	desc	weight	object
-"Nuthin"	"Black skunk goo on a stick"	1	Fish
+"Fish"	"A fish. It could be a big fish or a small fish, but it has scales on it. A sniff of it oddly reminds you of otters."	1	Fish
 
-Fish is a grab object. "A fish. It could be a big fish or a small fish, but it has scales on it. A sniff of it oddly reminds you of Sprites.".
+Fish is a grab object. 
 
-Fish is infectious. The strain of Fish is "Sea Sprite".
-usedesc of Fish is "[Spritefish]";
+Fish is infectious. The strain of Fish is "sea otter".
+usedesc of Fish is "[Fish]";
+The purified of fish is "food";
 
-To say Spritefish:
+To say Fish:
 	decrease the hunger of the player by 15;
+	if the hunger of the player is less than 0, now the hunger of the player is 0;
 
 when play ends:
 	if bodyname of player is "city sprite":
